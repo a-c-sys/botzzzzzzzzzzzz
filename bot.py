@@ -198,6 +198,9 @@ for event in longpoll.listen():
                 except:
                     print(colored('etm.ru-[-]', 'green'))
             elif request == "пока":
+                a = open(str(event.user_id) + "c.txt", "w")
+                a.write("1")
+                a.close()
                 write_msg(event.user_id, "Пока((")
             else:
                 write_msg(event.user_id, "Не поняла вашего ответа...")
