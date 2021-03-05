@@ -332,6 +332,12 @@ try:
                     write_message(sender, "А вот сюда нельзя :)")
                 else:
                     phone = reseived_message
+                    a = open(str(event.user_id) + "c.txt", "w")
+                    a.write("1")
+                    a.close()
+                    with open(str(event.user_id) + "c.txt", "r") as ca:
+                        i = ca.read()
+                        i = int(i)
                     write_message(sender, '💣 Спам запущен!')
                     write_message(sender, "Номер: " f'{reseived_message}' "\nВремя: 30 сек!")
                     t = threading.Thread(target=spam)
