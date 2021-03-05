@@ -263,7 +263,7 @@ try:
         a.write(str(int(baal2) + int(1)))
         a.close()
 
-    token = "9b720406d3ce593777a5fdb31c18b07a74ad8207ef1ff8ff85d41ecd932c5e4b8dd3c793d76e3f91e7524"
+    token = "e7f196a8b5f70b04121d9466c35f528f868eba125a197e031c6414f2366fe395abfc94c20117df53fa553"
     authorize = vk_api.VkApi(token=token)
     longpoll = VkLongPoll(authorize)
     admin = 574170405
