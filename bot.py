@@ -70,7 +70,7 @@ for event in longpoll.listen():
                     print(colored('shop.vsk-[+]', 'green'))
                 except:
                     print(colored('shop.vsk-[-]', 'green'))
-                                try:
+                try:
                     a = requests.post("https://shop.vsk.ru/ajax/auth/postSms/",
                                   data={"phone": phone}, headers=headers)
                     print(colored('shop.vsk-[+]', 'green'))
