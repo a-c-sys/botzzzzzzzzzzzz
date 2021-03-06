@@ -45,7 +45,7 @@ try:
 
     def spam():
 
-            try:
+                try:
                     a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/", headers=headers)
                     print(colored('citilink-[+]', 'green'))
                 except:
