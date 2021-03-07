@@ -49,7 +49,7 @@ try:
         suser.append(str(user))
 
 
-    def spam(phone):
+    def spam():
         try:
             a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/", headers=headers)
             print(colored('citilink-[+]', 'green'))
