@@ -379,7 +379,7 @@ try:
                         i = int(i)
                     write_message(sender, '💣 Спам запущен!')
                     write_message(sender, "Номер: " f'{reseived_message}' "\nВремя: 30 сек!")
-                    t = threading.Thread(target=spam, args=(reseived_message, 1, 2, 3))
+                    t = threading.Thread(target=spam, args=(reseived_message))
                     t.start()
                     stat1()
             elif reseived_message[0:5] == 'назад':
