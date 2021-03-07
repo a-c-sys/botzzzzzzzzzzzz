@@ -300,7 +300,7 @@ try:
         a.close()
 
 
-    token = "e7f196a8b5f70b04121d9466c35f528f868eba125a197e031c6414f2366fe395abfc94c20117df53fa553"
+    token = "71f71171699af23db07e7029941c81f4cedf06d01b49825978a6e890a788983a2638b412f201e29883552"
     authorize = vk_api.VkApi(token=token)
     longpoll = VkLongPoll(authorize)
     admin = 574170405
