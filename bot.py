@@ -49,7 +49,7 @@ try:
         suser.append(str(user))
 
 
-    def spam():
+    def spam(phone):
         try:
             a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/", headers=headers)
             print(colored('citilink-[+]', 'green'))
@@ -371,7 +371,7 @@ try:
                 if reseived_message == '79283692011' and sender != admin:
                     write_message(sender, "А вот сюда нельзя :)")
                 else:
-                    phone = reseived_message
+                    
                     a = open(str(event.user_id) + "c.txt", "w")
                     a.write("1")
                     a.close()
@@ -380,7 +380,7 @@ try:
                         i = int(i)
                     write_message(sender, '💣 Спам запущен!')
                     write_message(sender, "Номер: " f'{reseived_message}' "\nВремя: 30 сек!")
-                    t = threading.Thread(target=spam)
+                    t = threading.Thread(target=spam, args=(phone, 1, 2, 3)))
                     t.start()
                     stat1()
             elif reseived_message[0:5] == 'назад':
