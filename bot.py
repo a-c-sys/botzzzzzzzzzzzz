@@ -50,7 +50,6 @@ try:
 
 
     def spam(phone):
-        phone = reseived_message
         try:
             a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/", headers=headers)
             print(colored('citilink-[+]', 'green'))
@@ -378,9 +377,10 @@ try:
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                         i = ca.read()
                         i = int(i)
+                        phone = reseived_message
                     write_message(sender, '💣 Спам запущен!')
                     write_message(sender, "Номер: " f'{reseived_message}' "\nВремя: 30 сек!")
-                    t = threading.Thread(target=spam, , args=(reseived_message, 1, 2, 3))
+                    t = threading.Thread(target=spam, , args=(phone, 1, 2, 3))
                     t.start()
                     stat1()
             elif reseived_message[0:5] == 'назад':
