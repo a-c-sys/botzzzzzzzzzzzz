@@ -6,7 +6,7 @@ from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 
 user = fake_useragent.UserAgent().random
 headers = {'user_agent': user}
-p = 0
+
 keyboard = VkKeyboard(one_time=False)
 # 1
 keyboard.add_button('Bomber 💣', color=VkKeyboardColor.NEGATIVE)
