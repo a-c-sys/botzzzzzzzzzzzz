@@ -362,97 +362,102 @@ for event in longpoll.listen():
         user = authorize.method("users.get", {"user_ids": event.user_id})  # вместо 1 подставляете айди нужного юзера
         name = user[0]['first_name']
 
-    if reseived_message == 'начать' and i == 1 \
-            or reseived_message == 'начать' and i == 1 \
-            or reseived_message == 'привет' and i == 1 \
-            or reseived_message == 'ку' and i == 1 \
-            or reseived_message == 'хай' and i == 1 \
-            or reseived_message == 'здравствуйте' and i == 1 \
-            or reseived_message == 'дарова' and i == 1:
-        a = open(str(event.user_id) + "c.txt", "w")
-        a.write("1")
-        a.close()
-        write_message(sender, "Привет " + name + '! \nРады видеть тебя в нашей группе 😊')
-        write_message(sender, "Выбери:")
+        if reseived_message == 'начать' \
+                or reseived_message == 'привет' \
+                or reseived_message == 'ку' \
+                or reseived_message == 'хай' \
+                or reseived_message == 'здравствуйте' \
+                or reseived_message == 'дарова':
+            if check(sender) == 0:
+                adder(sender)
 
-    elif reseived_message[0:10] == 'статистика':
-        with open("baal.txt", "r") as baa:
-            baal = baa.read()
-            baal == str(baal)
-        with open(str(event.user_id) + "c.txt", "r") as ca:
-            i = ca.read()
-            i = int(i)
-        with open("bal.txt", "r") as ba:
-            bal = ba.read()
-            bal == str(bal)
-        write_message(sender,
-                      f"Всего пользователей: {baal} 👥 \nЗаспамленно: {bal} 📲 \nРазработчик: \n[https://vk.com/id{admin}|Дима Янков] 😇")
-    elif reseived_message[0:10] == 'поддержать':
-        write_message(sender,
-                      "Можете поддержать автора: \nQiwi - +79283692011 \nСберб - 4276600059773339 \n\nБуду рад вашей поддержке 😊")
-    elif reseived_message[0:6] == 'bomber' or reseived_message == 'бомбер':
-        if check(sender) == 0:
-            adder(sender)
-        a = open(str(event.user_id) + "c.txt", "w")
-        a.write("2")
-        a.close()
-        with open(str(event.user_id) + "c.txt", "r") as ca:
-            i = ca.read()
-            i = int(i)
-        write_message(sender, "Введите номер: \nПример: 79287777777")
-    elif reseived_message[0:1] == "8" and len(reseived_message) == 11 and i == 2:
-        write_message(sender, "Введите номер без 8 НАЧИНАЯ С 7 !!!")
-    elif reseived_message[0:2] == "79" and len(reseived_message) == 11 and i == 2:
-        if reseived_message == '79283692011' and sender != admin:
-            write_message(sender, "А вот сюда нельзя :)")
-        else:
-            phone = reseived_message
             a = open(str(event.user_id) + "c.txt", "w")
             a.write("1")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            a = open(str(event.user_id) + "phone.txt", "w")
-            a.write(phone)
-            a.close()
-            write_message(sender, 'Ждите вашей очереди!')
+            write_message(sender, "Привет " + name + "! \nРады видеть тебя в нашей группе 😇")
+            write_message(sender, "Выбери:")
 
-    elif reseived_message[0:5] == 'назад':
-        a = open(str(event.user_id) + "c.txt", "w")
-        a.write("1")
-        a.close()
-        with open(str(event.user_id) + "c.txt", "r") as ca:
-            i = ca.read()
-            i = int(i)
-        write_message(sender, "Выбери:")
-    elif reseived_message[0:8] == "рассылка":
-        if sender == 574170405:
-            a = 0
-            try:
-                sm = extract_arg(event.text)
-                a = 1
-            except:
-                write_message(event.user_id, "Вы не указали текст для рассылки")
-            if a == 1:
-                with open(str(event.user_id) + "c.txt", "r") as ca:
-                    i = ca.read()
-                    i = int(i)
-                write_message(event.user_id, "Рссылка началась")
-                sms = event.text[8:]
-                so_ob = sms
-                t = threading.Thread(target=rass, args=(sms, 1, 2, 3))
-                t.start()
-            else:
-                write_message(sender, 'Вы не являетесь администратором !!!')
-    else:
-        if check(sender) == 0:
-            adder(sender)
-            stat2()
-        if i == 1:
+        elif reseived_message[0:10] == 'статистика':
+            with open("baal.txt", "r") as baa:
+                baal = baa.read()
+                baal == str(baal)
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, "Я тя не понял :/")
+            with open("bal.txt", "r") as ba:
+                bal = ba.read()
+                bal == str(bal)
+            write_message(sender,
+                          f"Всего пользователей: {baal} 👥 \nЗаспамленно: {bal} 📲 \nРазработчик: \n[https://vk.com/id{admin}|Дима Янков] 😇")
+        elif reseived_message[0:10] == 'поддержать':
+            write_message(sender,
+                          "Можете поддержать автора: \nQiwi - +79283692011 \nСберб - 4276600059773339 \n\nБуду рад вашей поддержке 😊")
+        elif reseived_message[0:6] == 'bomber' or reseived_message == 'бомбер':
+            if check(sender) == 0:
+                adder(sender)
+            a = open(str(event.user_id) + "c.txt", "w")
+            a.write("2")
+            a.close()
+            with open(str(event.user_id) + "c.txt", "r") as ca:
+                i = ca.read()
+                i = int(i)
+            write_message(sender, "Введите номер: \nПример: 79287777777")
+        elif reseived_message[0:1] == "8" and len(reseived_message) == 11 and i == 2:
+            write_message(sender, "Введите номер без 8 НАЧИНАЯ С 7 !!!")
+        elif reseived_message[0:2] == "79" and len(reseived_message) == 11 and i == 2:
+            if reseived_message == '79283692011' and sender != admin:
+                write_message(sender, "А вот сюда нельзя :)")
+            else:
+                phone = reseived_message
+                a = open(str(event.user_id) + "c.txt", "w")
+                a.write("1")
+                a.close()
+                with open(str(event.user_id) + "c.txt", "r") as ca:
+                    i = ca.read()
+                    i = int(i)
+                a = open(str(event.user_id) + "phone.txt", "w")
+                a.write(phone)
+                a.close()
+                write_message(sender, 'Ждите вашей очереди!')
+
+        elif reseived_message[0:5] == 'назад':
+            a = open(str(event.user_id) + "c.txt", "w")
+            a.write("1")
+            a.close()
+            with open(str(event.user_id) + "c.txt", "r") as ca:
+                i = ca.read()
+                i = int(i)
+            write_message(sender, "Выбери:")
+        elif reseived_message[0:8] == "рассылка":
+            if sender == 574170405:
+                a = 0
+                try:
+                    sm = extract_arg(event.text)
+                    a = 1
+                except:
+                    write_message(event.user_id, "Вы не указали текст для рассылки")
+                if a == 1:
+                    with open(str(event.user_id) + "c.txt", "r") as ca:
+                        i = ca.read()
+                        i = int(i)
+                    write_message(event.user_id, "Рссылка началась")
+                    sms = event.text[8:]
+                    so_ob = sms
+                    t = threading.Thread(target=rass, args=(sms, 1, 2, 3))
+                    t.start()
+                else:
+                    write_message(sender, 'Вы не являетесь администратором !!!')
         else:
-            write_message(sender, "Номер введён не верно! \nПример: 79287777777")
+            if check(sender) == 0:
+                adder(sender)
+                stat2()
+            if i == 1:
+                with open(str(event.user_id) + "c.txt", "r") as ca:
+                    i = ca.read()
+                    i = int(i)
+                write_message(sender, "Я тя не понял :/")
+            else:
+                write_message(sender, "Номер введён не верно! \nПример: 79287777777")
