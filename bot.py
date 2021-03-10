@@ -310,6 +310,13 @@ for event in longpoll.listen():
         user = authorize.method("users.get",
                                 {"user_ids": event.user_id})  # вместо 1 подставляете айди нужного юзера
         name = user[0]['first_name']
+        try:
+            a = open(str(event.user_id) + "c.txt", "r")
+            a.close()
+        except:
+            a = open(str(event.user_id) + "c.txt", "w")
+            a.write("1")
+            a.close()
         with open(str(event.user_id) + "c.txt", "r") as ca:
             i = ca.read()
             i = int(i)
