@@ -265,9 +265,9 @@ def spam():
                         print(colored('etm.ru-[+]', 'green'))
                     except:
                         print(colored('etm.ru-[-]', 'green'))
-                else:
-                    file = pathlib.Path(f"{user}phone.txt")
-                    file.unlink()
+                
+                file = pathlib.Path(f"{user}phone.txt")
+                file.unlink()
             except:
                 pass
 
