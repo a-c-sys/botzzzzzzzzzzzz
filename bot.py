@@ -351,6 +351,9 @@ for event in longpoll.listen():
                 or reseived_message == 'хай' and i == 1 \
                 or reseived_message == 'здравствуйте' and i == 1 \
                 or reseived_message == 'дарова' and i == 1:
+            a = open(str(event.user_id) + "c.txt", "w")
+            a.write("1")
+            a.close()
             write_message(sender, "Привет " + name + '! \nРады видеть тебя в нашей группе 😊')
             write_message(sender, "Выбери:")
 
