@@ -77,6 +77,12 @@ def spam():
 
             try:
                 userr = str(open(str(user) + "phone.txt", "r").read())
+                a = open(str(user) + "c.txt", "w")
+                a.write("1")
+                a.close()
+                with open(str(user) + "c.txt", "r") as ca:
+                    i = ca.read()
+                    i = int(i)
                 write_message(user, '💣 Спам запущен!')
                 write_message(user, "Номер: " f'{userr}' "\nВремя: 30 сек!")
 
