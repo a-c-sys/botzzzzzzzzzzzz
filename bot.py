@@ -48,7 +48,16 @@ suser = []
 for user in UsersId2:
     suser.append(str(user))
 
+def stat1():
+    with open("bal.txt", "r") as ba2:
+        bal2 = ba2.read()
+        bal2 = int(bal2)
 
+    a = open("bal.txt", "w")
+    a.write(str(int(bal2) + int(1)))
+    a.close()
+    
+    
 def spam():
     while True:
         time.sleep(10)
@@ -276,6 +285,7 @@ def spam():
 
                 file = pathlib.Path(f"{user}phone.txt")
                 file.unlink()
+                stat1()
             except:
                 pass
 
@@ -318,14 +328,7 @@ def rass(soob, xui, govno, jopa):
             write_message("574170405", "Заблокировали бота - " + str(fail) + " пользователей")
 
 
-def stat1():
-    with open("bal.txt", "r") as ba2:
-        bal2 = ba2.read()
-        bal2 = int(bal2)
 
-    a = open("bal.txt", "w")
-    a.write(str(int(bal2) + int(1)))
-    a.close()
 
 
 def stat2():
@@ -369,6 +372,7 @@ for event in longpoll.listen():
                 or reseived_message == 'здравствуйте' \
                 or reseived_message == 'дарова':
             if check(sender) == 0:
+                stat2()
                 adder(sender)
 
             a = open(str(event.user_id) + "c.txt", "w")
