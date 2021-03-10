@@ -299,7 +299,7 @@ def stat2():
     a.close()
 
 
-token = "71f71171699af23db07e7029941c81f4cedf06d01b49825978a6e890a788983a2638b412f201e29883552"
+token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
 authorize = vk_api.VkApi(token=token)
 longpoll = VkLongPoll(authorize)
 admin = 574170405
