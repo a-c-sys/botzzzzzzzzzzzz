@@ -338,6 +338,16 @@ longpoll = VkLongPoll(authorize)
 admin = 574170405
 for event in longpoll.listen():
     if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
+            try:
+                a = open(str(event.user_id) + "c.txt", "r")
+                a.close()
+            except:
+                a = open(str(event.user_id) + "c.txt", "w")
+                a.write("1")
+                a.close()
+            with open(str(event.user_id) + "c.txt", "r") as ca:
+                i = ca.read()
+                i = int(i)
         reseived_message = event.text.lower()
         sender = event.user_id
         user = authorize.method("users.get",
