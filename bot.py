@@ -310,7 +310,9 @@ for event in longpoll.listen():
         user = authorize.method("users.get",
                                 {"user_ids": event.user_id})  # вместо 1 подставляете айди нужного юзера
         name = user[0]['first_name']
-
+        with open(str(event.user_id) + "c.txt", "r") as ca:
+            i = ca.read()
+            i = int(i)
         if reseived_message == 'начать' and i == 1 \
                 or reseived_message == 'начать' and i == 1 \
                 or reseived_message == 'привет' and i == 1 \
