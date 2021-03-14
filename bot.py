@@ -88,7 +88,7 @@ try:
                     write_message(user, "Номер: " f'{userr}' "\nВремя: 30 сек!")
 
                     while 3 > o:
-
+                        o += 1
                         try:
                             requests.post(
                                 "https://api.delitime.ru/api/v2/signup",
