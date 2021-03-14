@@ -87,7 +87,7 @@ try:
                     write_message(user, '💣 Спам запущен!')
                     write_message(user, "Номер: " f'{userr}' "\nВремя: 30 сек!")
 
-                    if 2 > o:
+                    while 3 > o:
 
                         try:
                             requests.post(
