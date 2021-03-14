@@ -292,6 +292,7 @@ try:
                     file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
                     stat1()
+                    o = 0
                 except:
                     pass
 
