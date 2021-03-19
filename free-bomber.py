@@ -482,8 +482,7 @@ try:
                         a.close()
                         if checkk(sender) == 0:
                             adderr(sender)
-                        if col > 0:
-                            write_message(sender, f'Ждите вашей очереди 🛎')
+                        write_message(sender, f'Ждите вашей очереди 🛎')
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
                         bba = extract_arg(reseived_message)
