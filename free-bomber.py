@@ -489,12 +489,12 @@ try:
                         suserr = []
                         for user in UsersIdd2:
                             suserr.append(str(user))
-                        col = -1
+                        col = 0
                         try:
                             for f in suserr:
                                 col += 1
                         except:
-                            col = 0
+                            pass
                         if checkk(sender) == 0:
                             adderr(sender)
                         if col > 0:
@@ -586,4 +586,4 @@ try:
             else:
                 write_message(sender, "Ваш аккаунт заблокирован 🙁")
 except:
-    os.system('python bot.py')
+    os.system('python free-bomber.py')
