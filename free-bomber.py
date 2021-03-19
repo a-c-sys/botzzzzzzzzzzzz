@@ -499,6 +499,8 @@ try:
                             adderr(sender)
                         if col > 0:
                             write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
+                elif reseived_message == 'qqq' and sender == admin:
+                    write_message(sender, str(suserr))
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
                         bba = extract_arg(reseived_message)
