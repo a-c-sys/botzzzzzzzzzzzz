@@ -489,7 +489,7 @@ try:
                         suserr = []
                         for user in UsersIdd2:
                             suserr.append(str(user))
-                        col = 0
+                        col = -1
                         try:
                             for f in suserr:
                                 col += 1
