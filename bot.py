@@ -315,10 +315,6 @@ try:
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
                     suserr.remove(str(user))
-
-                    file = open('bazan.txt', 'w')
-                    file.close()
-
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
                         file.write(f'{s}\n')
@@ -327,7 +323,15 @@ try:
                     file.unlink()
                     stat1()
                     o = 0
+                    UsersIdd = open("bazan.txt", "r")
+                    UsersIdd2 = set()
+                    for line in UsersIdd:
+                        UsersIdd2.add(line.strip())
+                    UsersIdd.close()
 
+                    suserr = []
+                    for user in UsersIdd2:
+                        suserr.append(str(user))
                 except:
                     pass
 
@@ -380,8 +384,8 @@ try:
         a.close()
 
 
-    d = threading.Thread(target=spam)
-    d.start()
+    ww = threading.Thread(target=spam)
+    ww.start()
 
     token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
     authorize = vk_api.VkApi(token=token)
