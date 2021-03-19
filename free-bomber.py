@@ -4,7 +4,7 @@ try:
     from vk_api.longpoll import VkLongPoll, VkEventType
     from vk_api.utils import get_random_id
     from vk_api.keyboard import VkKeyboard, VkKeyboardColor
-
+    col = -1
     i = 1
     user = fake_useragent.UserAgent().random
     headers = {'user_agent': user}
@@ -63,15 +63,6 @@ try:
     for user in UsersId2:
         suser.append(str(user))
 
-    UsersIdd = open("bazan.txt", "r")
-    UsersIdd2 = set()
-    for line in UsersIdd:
-        UsersIdd2.add(line.strip())
-    UsersIdd.close()
-
-    suserr = []
-    for user in UsersIdd2:
-        suserr.append(str(user))
 
     def stat1():
         with open("bal.txt", "r") as ba2:
@@ -92,10 +83,20 @@ try:
     dd = threading.Thread(target=xxx)
     dd.start()
 
+
     def spam():
         while True:
             time.sleep(2)
             o = 0
+            UsersIdd = open("bazan.txt", "r")
+            UsersIdd2 = set()
+            for line in UsersIdd:
+                UsersIdd2.add(line.strip())
+            UsersIdd.close()
+
+            suserr = []
+            for user in UsersIdd2:
+                suserr.append(str(user))
             for user in suserr:
                 try:
                     userr = str(open(str(user) + "phone.txt", "r").read())
@@ -313,13 +314,26 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    col = -1
-                    suserr.remove(f'{user}')
+                    suserr.remove(str(user))
+                    col +=1
+                    for s in suserr:
+                        file = open('bazan.txt', 'a', encoding='utf-8')
+                        file.write(f'{s}\n')
+                        file.close()
                     file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
                     stat1()
                     write_message(str(user), 'Спам прекращён ✅')
                     o = 0
+                    UsersIdd = open("bazan.txt", "r")
+                    UsersIdd2 = set()
+                    for line in UsersIdd:
+                        UsersIdd2.add(line.strip())
+                    UsersIdd.close()
+
+                    suserr = []
+                    for user in UsersIdd2:
+                        suserr.append(str(user))
                 except:
                     pass
 
@@ -467,7 +481,9 @@ try:
                         a = open(str(event.user_id) + "phone.txt", "w")
                         a.write(phone)
                         a.close()
-                        col = -1
+                        col +=1
+                        if checkk(sender) == 0:
+                            adderr(sender)
                         if col > 0:
                             write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
                 elif reseived_message[0:3] == 'бан' and sender == admin:
