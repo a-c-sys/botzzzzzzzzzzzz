@@ -1,5 +1,5 @@
 try:
-    import vk_api, requests, fake_useragent, threading, pathlib, time, os
+    import vk_api, requests, fake_useragent, threading, pathlib, time, os, random
     from termcolor import colored
     from vk_api.longpoll import VkLongPoll, VkEventType
     from vk_api.utils import get_random_id
@@ -322,6 +322,7 @@ try:
                     file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
                     stat1()
+                    write_message(str(user), 'Спам прекращён ✅')
                     o = 0
                     UsersIdd = open("bazan.txt", "r")
                     UsersIdd2 = set()
@@ -481,8 +482,39 @@ try:
                         a.close()
                         if checkk(sender) == 0:
                             adderr(sender)
-                        write_message(sender, 'Ждите вашей очереди!')
+                        write_message(str(user), 'Спам прекращён!')
+                        o = 0
+                        UsersIdd = open("bazan.txt", "r")
+                        UsersIdd2 = set()
+                        for line in UsersIdd:
+                            UsersIdd2.add(line.strip())
+                        UsersIdd.close()
 
+                        suserr = []
+                        for user in UsersIdd2:
+                            suserr.append(str(user))
+                        col = 0
+                        try:
+                            for f in suserr:
+                                col += 1
+                        except:
+                            col = 0
+                        if col > 0:
+                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
+                elif reseived_message[0:3] == 'бан' and sender == admin:
+                    bba = extract_arg(reseived_message)
+                    a = open(str(bba) + "ban.txt", "w")
+                    a.write("0")
+                    a.close()
+                    write_message(str(bba), 'Ваш аккаунт заблокирован 🙁')
+                    write_message(sender, 'Аккаунт заблокирован 🙁')
+                elif reseived_message[0:4] == 'абан' and sender == admin:
+                    bba = extract_arg(reseived_message)
+                    a = open(str(bba) + "ban.txt", "w")
+                    a.write("1")
+                    a.close()
+                    write_message(str(bba), 'Ваш аккаунт разблокирован 🙄')
+                    write_message(sender, 'Аккаунт разблокирован 🙄')
                 elif reseived_message[0:5] == 'назад':
                     a = open(str(event.user_id) + "c.txt", "w")
                     a.write("1")
@@ -491,6 +523,32 @@ try:
                         i = ca.read()
                         i = int(i)
                     write_message(sender, "Выбери:")
+                elif reseived_message[0:6] == 'лучший' \
+                    or reseived_message[0:3] == 'топ' \
+                    or reseived_message[0:6] == 'крутой':
+                    write_message(sender, 'Спасибо приятно 😊')
+                    write_message(sender, 'Я знаю 😎')
+                    write_message(sender, 'Благодарю 🙃')
+                elif reseived_message[0:3] == 'ок' \
+                        or reseived_message[0:5] == 'супер' \
+                        or reseived_message[0:5] == 'класс':
+                    a = random.randint(1, 3)
+                    if a == 1:
+                        write_message(sender, "👌")
+                    elif a == 2:
+                        write_message(sender, "👍")
+                    elif a == 3:
+                        write_message(sender, "✌")
+                elif reseived_message[0:7] == 'cпасибо' \
+                        or reseived_message[0:3] == 'cпc':
+                    a = random.randint(1, 3)
+                    if a == 1:
+                        write_message(sender, "Не за что 😉")
+
+                    elif a == 2:
+                        write_message(sender, "Всегда рад 😁")
+                    elif a == 3:
+                        write_message(sender, "Пожалуйста :)")
                 elif reseived_message[0:8] == "рассылка":
                     if sender == 574170405:
                         a = 0
@@ -522,6 +580,6 @@ try:
                     else:
                         write_message(sender, "Номер введён не верно! \nПример: 79287777777")
             else:
-                write_message(sender, "Ваш аккаунт заблокирован !!!")
+                write_message(sender, "Ваш аккаунт заблокирован 🙁")
 except:
     os.system('python bot.py')
