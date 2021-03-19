@@ -586,4 +586,4 @@ try:
             else:
                 write_message(sender, "Ваш аккаунт заблокирован 🙁")
 except:
-    os.system('python main.py')
+    os.system('python bot.py')
