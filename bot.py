@@ -480,10 +480,6 @@ try:
                         a = open(str(event.user_id) + "phone.txt", "w")
                         a.write(phone)
                         a.close()
-                        if checkk(sender) == 0:
-                            adderr(sender)
-                        write_message(str(user), 'Спам прекращён!')
-                        o = 0
                         UsersIdd = open("bazan.txt", "r")
                         UsersIdd2 = set()
                         for line in UsersIdd:
@@ -499,6 +495,8 @@ try:
                                 col += 1
                         except:
                             col = 0
+                        if checkk(sender) == 0:
+                            adderr(sender)
                         if col > 0:
                             write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
                 elif reseived_message[0:3] == 'бан' and sender == admin:
@@ -535,20 +533,20 @@ try:
                     a = random.randint(1, 3)
                     if a == 1:
                         write_message(sender, "👌")
-                    elif a == 2:
+                    if a == 2:
                         write_message(sender, "👍")
-                    elif a == 3:
+                    if a == 3:
                         write_message(sender, "✌")
-                elif reseived_message[0:7] == 'cпасибо' \
-                        or reseived_message[0:3] == 'cпc':
-                    a = random.randint(1, 3)
-                    if a == 1:
-                        write_message(sender, "Не за что 😉")
+                elif reseived_message == 'спасибо' \
+                        or reseived_message[0:3] == 'спс':
+                            a = random.randint(1, 3)
+                            if a == 1:
+                                write_message(sender, "Не за что 😉")
 
-                    elif a == 2:
-                        write_message(sender, "Всегда рад 😁")
-                    elif a == 3:
-                        write_message(sender, "Пожалуйста :)")
+                            if a == 2:
+                                write_message(sender, "Всегда рад 😁")
+                            if a == 3:
+                                write_message(sender, "Пожалуйста :)")
                 elif reseived_message[0:8] == "рассылка":
                     if sender == 574170405:
                         a = 0
@@ -582,4 +580,4 @@ try:
             else:
                 write_message(sender, "Ваш аккаунт заблокирован 🙁")
 except:
-    os.system('python bot.py')
+    os.system('python main.py')
