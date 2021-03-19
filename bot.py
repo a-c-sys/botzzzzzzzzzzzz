@@ -333,10 +333,10 @@ try:
 
 
     def write_message(sender, message):
-        if i == 0:
+        if i == 1:
             authorize.method('messages.send', {'user_id': sender, 'message': message, "random_id": get_random_id(),
                                                'keyboard': keyboard.get_keyboard()})
-        if i == 1:
+        if i == 2:
             authorize.method('messages.send', {'user_id': sender, 'message': message, "random_id": get_random_id(),
                                                'keyboard': clava2.get_keyboard()})
 
