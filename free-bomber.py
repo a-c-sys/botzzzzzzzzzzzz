@@ -84,7 +84,7 @@ try:
     dd.start()
 
 
-    def spam(col):
+    def spam():
         while True:
             time.sleep(2)
             o = 0
@@ -315,7 +315,6 @@ try:
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
                     suserr.remove(str(user))
-                    col -= 1
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
                         file.write(f'{s}\n')
@@ -386,7 +385,7 @@ try:
         a.close()
 
 
-    ww = threading.Thread(target=spam, args=(col))
+    ww = threading.Thread(target=spam)
     ww.start()
 
     token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
@@ -481,11 +480,10 @@ try:
                         a = open(str(event.user_id) + "phone.txt", "w")
                         a.write(phone)
                         a.close()
-                        col +=1
                         if checkk(sender) == 0:
                             adderr(sender)
                         if col > 0:
-                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
+                            write_message(sender, f'Ждите вашей очереди 🛎')
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
                         bba = extract_arg(reseived_message)
