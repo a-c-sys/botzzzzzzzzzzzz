@@ -314,7 +314,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    suserr.remove(int(user))
+                    suserr.remove(user)
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
                         file.write(f'{s}\n')
