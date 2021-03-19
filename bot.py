@@ -489,7 +489,7 @@ try:
                         suserr = []
                         for user in UsersIdd2:
                             suserr.append(str(user))
-                        col = 0
+                        col = -1
                         try:
                             for f in suserr:
                                 col += 1
@@ -500,19 +500,25 @@ try:
                         if col > 0:
                             write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
                 elif reseived_message[0:3] == 'бан' and sender == admin:
-                    bba = extract_arg(reseived_message)
-                    a = open(str(bba) + "ban.txt", "w")
-                    a.write("0")
-                    a.close()
-                    write_message(str(bba), 'Ваш аккаунт заблокирован 🙁')
-                    write_message(sender, 'Аккаунт заблокирован 🙁')
+                    try:
+                        bba = extract_arg(reseived_message)
+                        a = open(str(bba) + "ban.txt", "w")
+                        a.write("0")
+                        a.close()
+                        write_message(str(bba), 'Ваш аккаунт заблокирован 🙁')
+                        write_message(sender, 'Аккаунт заблокирован 🙁')
+                    except:
+                        write_message(sender, 'Что-то пошло не так 🙄')
                 elif reseived_message[0:4] == 'абан' and sender == admin:
-                    bba = extract_arg(reseived_message)
-                    a = open(str(bba) + "ban.txt", "w")
-                    a.write("1")
-                    a.close()
-                    write_message(str(bba), 'Ваш аккаунт разблокирован 🙄')
-                    write_message(sender, 'Аккаунт разблокирован 🙄')
+                    try:
+                        bba = extract_arg(reseived_message)
+                        a = open(str(bba) + "ban.txt", "w")
+                        a.write("1")
+                        a.close()
+                        write_message(str(bba), 'Ваш аккаунт разблокирован 🙄')
+                        write_message(sender, 'Аккаунт разблокирован 🙄')
+                    except:
+                        write_message(sender, 'Что-то пошло не так 🙄')
                 elif reseived_message[0:5] == 'назад':
                     a = open(str(event.user_id) + "c.txt", "w")
                     a.write("1")
