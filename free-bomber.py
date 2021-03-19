@@ -314,7 +314,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    suserr.remove(user)
+                    suserr.remove(str(user))
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
                         file.write(f'{s}\n')
@@ -500,6 +500,15 @@ try:
                         if col > 0:
                             write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {col} пользователей 👤')
                 elif reseived_message == 'qqq' and sender == admin:
+                    UsersIdd = open("bazan.txt", "r")
+                    UsersIdd2 = set()
+                    for line in UsersIdd:
+                        UsersIdd2.add(line.strip())
+                    UsersIdd.close()
+
+                    suserr = []
+                    for user in UsersIdd2:
+                        suserr.append(str(user))
                     write_message(sender, str(suserr))
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
