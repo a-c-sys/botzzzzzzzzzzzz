@@ -338,7 +338,7 @@ try:
                                                'keyboard': keyboard.get_keyboard()})
         if i == 1:
             authorize.method('messages.send', {'user_id': sender, 'message': message, "random_id": get_random_id(),
-                                               'keyboard': clava1.get_keyboard()})
+                                               'keyboard': clava2.get_keyboard()})
 
 
     def rass(soob, xui, govno, jopa):
