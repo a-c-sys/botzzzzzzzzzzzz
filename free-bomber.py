@@ -84,7 +84,7 @@ try:
     dd.start()
 
 
-    def spam():
+    def spam(col):
         while True:
             time.sleep(2)
             o = 0
@@ -315,7 +315,7 @@ try:
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
                     suserr.remove(str(user))
-                    col +=1
+                    col -= 1
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
                         file.write(f'{s}\n')
@@ -386,7 +386,7 @@ try:
         a.close()
 
 
-    ww = threading.Thread(target=spam)
+    ww = threading.Thread(target=spam, args=(col))
     ww.start()
 
     token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
