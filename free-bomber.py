@@ -357,7 +357,7 @@ try:
     longpoll = VkLongPoll(authorize)
     admin = 574170405
     for event in longpoll.listen():
-        if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
+        if event.type == VkEventType.MESSAGE_NEW and event.to_me:
             try:
                 a = open(str(event.user_id) + "c.txt", "r")
                 a.close()
