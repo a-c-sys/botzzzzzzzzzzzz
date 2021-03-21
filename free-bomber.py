@@ -313,7 +313,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    time.sleep(120)
+                        time.sleep(120)
                     suserr.remove(str(user))
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
