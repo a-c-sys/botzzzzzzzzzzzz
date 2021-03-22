@@ -278,15 +278,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    UsersIdd = open("bazan.txt", "r")
-                    UsersIdd2 = set()
-                    for line in UsersIdd:
-                        UsersIdd2.add(line.strip())
-                    UsersIdd.close()
-
-                    suserr = []
-                    for user in UsersIdd2:
-                        suserr.append(str(user))
+                 
                     suserr.remove(str(user))
                     file = open('bazan.txt', 'w')
                     file.close()
@@ -459,6 +451,15 @@ try:
                         a = open(str(event.user_id) + "phone.txt", "w")
                         a.write(phone)
                         a.close()
+                        UsersIdd = open("bazan.txt", "r")
+                        UsersIdd2 = set()
+                        for line in UsersIdd:
+                            UsersIdd2.add(line.strip())
+                        UsersIdd.close()
+
+                        suserr = []
+                        for user in UsersIdd2:
+                            suserr.append(str(user))
                         if checkk(sender) == 0:
                             adderr(sender)
                         write_message(sender, f'Ждите вашей очереди 🛎')
