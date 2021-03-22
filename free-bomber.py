@@ -278,6 +278,15 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
+                    UsersIdd = open("bazan.txt", "r")
+                    UsersIdd2 = set()
+                    for line in UsersIdd:
+                        UsersIdd2.add(line.strip())
+                    UsersIdd.close()
+
+                    suserr = []
+                    for user in UsersIdd2:
+                        suserr.append(str(user))
                     suserr.remove(str(user))
                     file = open('bazan.txt', 'w')
                     file.close()
