@@ -279,6 +279,8 @@ try:
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
                     suserr.remove(str(user))
+                    file = open('bazan.txt', 'w')
+                    file.close()
                     for s in suserr:
                         file = open('bazan.txt', 'a', encoding='utf-8')
                         file.write(f'{s}\n')
