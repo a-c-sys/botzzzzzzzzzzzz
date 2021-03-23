@@ -344,22 +344,22 @@ try:
         a = open("baal.txt", "w")
         a.write(str(int(baal2) + int(1)))
         a.close()
-   def stat3():
-        with open("bl.txt", "r") as b2:
-            bll2 = b2.read()
-            bll2 = int(bll2)
+    def stat3():
+         with open("bl.txt", "r") as b2:
+             bll2 = b2.read()
+             bll2 = int(bll2)
 
-        a = open("baal.txt", "w")
-        a.write(str(int(bll2) + int(1)))
-        a.close()
-    def stat4():
-        with open("bl.txt", "r") as b2:
-            bll2 = b2.read()
-            bll2 = int(bll2)
+         a = open("baal.txt", "w")
+         a.write(str(int(bll2) + int(1)))
+         a.close()
+     def stat4():
+         with open("bl.txt", "r") as b2:
+             bll2 = b2.read()
+             bll2 = int(bll2)
 
-        a = open("baal.txt", "w")
-        a.write(str(int(bll2) - int(1)))
-        a.close()
+         a = open("baal.txt", "w")
+         a.write(str(int(bll2) - int(1)))
+         a.close()
 
     ww = threading.Thread(target=spam)
     ww.start()
