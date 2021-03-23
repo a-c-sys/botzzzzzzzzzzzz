@@ -4,6 +4,7 @@ try:
     from vk_api.longpoll import VkLongPoll, VkEventType
     from vk_api.utils import get_random_id
     from vk_api.keyboard import VkKeyboard, VkKeyboardColor
+
     col = -1
     i = 1
     user = fake_useragent.UserAgent().random
@@ -36,6 +37,7 @@ try:
             return 0
         file.close()
 
+
     def extract_arg(arg):
         return arg.split()[1]
 
@@ -45,6 +47,7 @@ try:
         file.write(f'{x}\n')
 
         file.close()
+
 
     def adderr(x):
         file = open('bazan.txt', 'a', encoding='utf-8')
@@ -71,6 +74,36 @@ try:
 
         a = open("bal.txt", "w")
         a.write(str(int(bal2) + int(1)))
+        a.close()
+
+
+    def stat2():
+        with open("baal.txt", "r") as baa2:
+            baal2 = baa2.read()
+            baal2 = int(baal2)
+
+        a = open("baal.txt", "w")
+        a.write(str(int(baal2) + int(1)))
+        a.close()
+
+
+    def stat3():
+        with open("bl.txt", "r") as b2:
+            bll2 = b2.read()
+            bll2 = int(bll2)
+
+        a = open("baal.txt", "w")
+        a.write(str(int(bll2) + int(1)))
+        a.close()
+
+
+    def stat4():
+        with open("bl.txt", "r") as b2:
+            bll2 = b2.read()
+            bll2 = int(bll2)
+
+        a = open("baal.txt", "w")
+        a.write(str(int(bll2) - int(1)))
         a.close()
 
 
@@ -110,7 +143,7 @@ try:
                     write_message(user, "Номер: " f'{userr}' "\nВремя: 1 минута!")
                     c = 0
                     while 8 > c:
-                        c +=1
+                        c += 1
                         try:
                             requests.post(
                                 "https://api.delitime.ru/api/v2/signup",
@@ -137,8 +170,7 @@ try:
                             print(colored('icq-[+]', 'yellow'))
                         except:
                             print(colored('icq-[-]', 'yellow'))
-   
- 
+
                         try:
                             a = requests.post("https://taxi.yandex.ru/3.0/auth",
                                               json={"id": "fa137685fd594a9f86f529eec9543e96", "phone": userr},
@@ -336,30 +368,8 @@ try:
                 write_message("574170405", "Заблокировали бота - " + str(fail) + " пользователей")
 
 
-    def stat2():
-        with open("baal.txt", "r") as baa2:
-            baal2 = baa2.read()
-            baal2 = int(baal2)
 
-        a = open("baal.txt", "w")
-        a.write(str(int(baal2) + int(1)))
-        a.close()
-    def stat3():
-         with open("bl.txt", "r") as b2:
-             bll2 = b2.read()
-             bll2 = int(bll2)
 
-         a = open("baal.txt", "w")
-         a.write(str(int(bll2) + int(1)))
-         a.close()
-     def stat4():
-         with open("bl.txt", "r") as b2:
-             bll2 = b2.read()
-             bll2 = int(bll2)
-
-         a = open("baal.txt", "w")
-         a.write(str(int(bll2) - int(1)))
-         a.close()
 
     ww = threading.Thread(target=spam)
     ww.start()
@@ -430,7 +440,7 @@ try:
                 elif reseived_message[0:10] == 'поддержать':
                     write_message(sender,
                                   "Можете поддержать автора: \nQiwi - +79283692011 \nСберб - 4276600059773339 \n\nБуду рад вашей поддержке 😊")
-                elif reseived_message[0:3] == 'xxx' and sender == adnim:
+                elif reseived_message[0:3] == 'xxx' and sender == admin:
                     ww = threading.Thread(target=spam)
                     ww.start()
                     write_message(sender, "Перезапуск...")
@@ -468,14 +478,14 @@ try:
                         for line in UsersIdd:
                             UsersIdd2.add(line.strip())
                         UsersIdd.close()
-                        
+
                         suserr = []
                         for user in UsersIdd2:
                             suserr.append(str(user))
                         if checkk(sender) == 0:
                             adderr(sender)
                         if bll2 > 0:
-                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bll2} пользователей 👥')                          
+                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bll2} пользователей 👥')
                         stat3()
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
@@ -506,8 +516,8 @@ try:
                         i = int(i)
                     write_message(sender, "Выбери:")
                 elif reseived_message[0:6] == 'лучший' \
-                    or reseived_message[0:3] == 'топ' \
-                    or reseived_message[0:6] == 'крутой':
+                        or reseived_message[0:3] == 'топ' \
+                        or reseived_message[0:6] == 'крутой':
                     write_message(sender, 'Спасибо приятно 😊')
                     write_message(sender, 'Я знаю 😎')
                     write_message(sender, 'Благодарю 🙃')
@@ -523,14 +533,14 @@ try:
                         write_message(sender, "✌")
                 elif reseived_message == 'спасибо' \
                         or reseived_message[0:3] == 'спс':
-                            a = random.randint(1, 3)
-                            if a == 1:
-                                write_message(sender, "Не за что 😉")
+                    a = random.randint(1, 3)
+                    if a == 1:
+                        write_message(sender, "Не за что 😉")
 
-                            if a == 2:
-                                write_message(sender, "Всегда рад 😁")
-                            if a == 3:
-                                write_message(sender, "Пожалуйста :)")
+                    if a == 2:
+                        write_message(sender, "Всегда рад 😁")
+                    if a == 3:
+                        write_message(sender, "Пожалуйста :)")
                 elif reseived_message[0:8] == "рассылка":
                     if sender == 574170405:
                         a = 0
