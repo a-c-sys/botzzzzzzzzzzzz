@@ -322,7 +322,6 @@ try:
                     for line in UsersIdd:
                         UsersIdd2.add(line.strip())
                     UsersIdd.close()
-                    stat4()
                     suserr = []
                     for user in UsersIdd2:
                         suserr.append(str(user))
@@ -484,9 +483,8 @@ try:
                             suserr.append(str(user))
                         if checkk(sender) == 0:
                             adderr(sender)
-                            stat3()
-                        if str(bll2) > 0:
-                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bqll2} пользователей 👥')
+                        
+                        write_message(sender, f'Ждите вашей очереди 🛎')
                         
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
