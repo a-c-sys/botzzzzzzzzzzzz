@@ -88,23 +88,24 @@ try:
 
 
     def stat3():
-        with open("bl.txt", "r") as b2:
-            bll2 = b2.read()
-            bll2 = int(bll2)
+        with open("bl.txt", "r") as bq2:
+            bqll2 = bq2.read()
+            bqll2 = int(bqll2)
 
         a = open("baal.txt", "w")
-        a.write(str(int(bll2) + int(1)))
+        a.write(str(int(bqll2) + int(1)))
         a.close()
 
 
     def stat4():
-        with open("bl.txt", "r") as b2:
-            bll2 = b2.read()
-            bll2 = int(bll2)
+        with open("bl.txt", "r") as bq2:
+            bqll2 = bq2.read()
+            bqll2 = int(bqll2)
 
         a = open("baal.txt", "w")
-        a.write(str(int(bll2) - int(1)))
+        a.write(str(int(bqll2) - int(1)))
         a.close()
+
 
 
     def xxx():
@@ -464,9 +465,9 @@ try:
                         a = open(str(event.user_id) + "c.txt", "w")
                         a.write("1")
                         a.close()
-                        with open("bl.txt", "r") as b2:
-                            bll2 = b2.read()
-                            bll2 = int(bll2)
+                        with open("bl.txt", "r") as bq2:
+                            bqll2 = bq2.read()
+                            bqll2 = int(bqll2)
                         with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
@@ -486,7 +487,7 @@ try:
                             adderr(sender)
                             stat3()
                         if str(bll2) > 0:
-                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bll2} пользователей 👥')
+                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bqll2} пользователей 👥')
                         
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
