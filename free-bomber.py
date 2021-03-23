@@ -278,7 +278,7 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                 
+                    stat4()
                     suserr.remove(str(user))
                     file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
@@ -344,7 +344,22 @@ try:
         a = open("baal.txt", "w")
         a.write(str(int(baal2) + int(1)))
         a.close()
+   def stat3():
+        with open("bl.txt", "r") as b2:
+            bll2 = b2.read()
+            bll2 = int(bll2)
 
+        a = open("baal.txt", "w")
+        a.write(str(int(bll2) + int(1)))
+        a.close()
+    def stat4():
+        with open("bl.txt", "r") as b2:
+            bll2 = b2.read()
+            bll2 = int(bll2)
+
+        a = open("baal.txt", "w")
+        a.write(str(int(bll2) - int(1)))
+        a.close()
 
     ww = threading.Thread(target=spam)
     ww.start()
@@ -439,6 +454,9 @@ try:
                         a = open(str(event.user_id) + "c.txt", "w")
                         a.write("1")
                         a.close()
+                        with open("bl.txt", "r") as b2:
+                            bll2 = b2.read()
+                            bll2 = int(bll2)
                         with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
@@ -450,13 +468,15 @@ try:
                         for line in UsersIdd:
                             UsersIdd2.add(line.strip())
                         UsersIdd.close()
-
+                        
                         suserr = []
                         for user in UsersIdd2:
                             suserr.append(str(user))
                         if checkk(sender) == 0:
                             adderr(sender)
-                        write_message(sender, f'Ждите вашей очереди 🛎')
+                        if bll2 > 0:
+                            write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bll2} пользователей 👥')                          
+                        stat3()
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
                         bba = extract_arg(reseived_message)
