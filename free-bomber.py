@@ -311,7 +311,6 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    stat4()
                     suserr.remove(str(user))
                     file = pathlib.Path(f"{user}phone.txt")
                     file.unlink()
@@ -323,7 +322,7 @@ try:
                     for line in UsersIdd:
                         UsersIdd2.add(line.strip())
                     UsersIdd.close()
-
+                    stat4()
                     suserr = []
                     for user in UsersIdd2:
                         suserr.append(str(user))
