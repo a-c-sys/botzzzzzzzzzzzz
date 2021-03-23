@@ -484,9 +484,10 @@ try:
                             suserr.append(str(user))
                         if checkk(sender) == 0:
                             adderr(sender)
-                        if bll2 > 0:
+                            stat3()
+                        if str(bll2) > 0:
                             write_message(sender, f'Ждите вашей очереди 🛎 \nПеред вами {bll2} пользователей 👥')
-                        stat3()
+                        
                 elif reseived_message[0:3] == 'бан' and sender == admin:
                     try:
                         bba = extract_arg(reseived_message)
