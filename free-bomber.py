@@ -107,9 +107,9 @@ try:
                         i = ca.read()
                         i = int(i)
                     write_message(user, '💣 Спам запущен!')
-                    write_message(user, "Номер: " f'{userr}' "\nВремя: 1 минуту!")
+                    write_message(user, "Номер: " f'{userr}' "\nВремя: 1 минута!")
                     c = 0
-                    while 5 > c:
+                    while 8 > c:
                         c +=1
                         try:
                             requests.post(
