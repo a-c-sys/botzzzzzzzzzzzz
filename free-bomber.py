@@ -376,7 +376,7 @@ try:
     ww = threading.Thread(target=spam)
     ww.start()
 
-    token = "f1633eeaccf588d2b2269ec109b63b783581433648776d838a7514b53a9448909664c942251b058138eae"
+    token = "ce70dc2087e3fde34f12c1c77f99d35611c5bb678561c4795ad825c3e46b8a4a20f720e5d4655dade4455"
     authorize = vk_api.VkApi(token=token)
     longpoll = VkLongPoll(authorize)
     admin = 574170405
