@@ -311,10 +311,13 @@ try:
                             print(colored('mts.ru-[+]', 'cyan'))
                         except:
                             print(colored('mts.ru-[-]', 'cyan'))
-                    suserr.remove(str(user))
-                    file = pathlib.Path(f"{user}phone.txt")
-                    file.unlink()
-                    stat1()
+                    try:
+                        suserr.remove(str(user))
+                        file = pathlib.Path(f"{user}phone.txt")
+                        file.unlink()
+                        stat1()
+                    except:
+                        pass
                     write_message(str(user), 'Спам прекращён ✅')
                     o = 0
                     UsersIdd = open("bazan.txt", "r")
