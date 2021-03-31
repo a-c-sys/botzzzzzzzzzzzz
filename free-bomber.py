@@ -576,4 +576,4 @@ try:
             else:
                 write_message(sender, "Ваш аккаунт заблокирован 🙁")
 except:
-    os.system('python bot.py')
+    os.system('python free-bomber.py')
